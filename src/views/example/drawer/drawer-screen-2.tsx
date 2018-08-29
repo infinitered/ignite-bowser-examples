@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from "react-native"
 
 export default class DrawerScreen2 extends React.Component {
   render() {
-    console.tron.log(["styles", styles])
     return (
       <View style={styles.container}>
         <Text>Screen 2</Text>

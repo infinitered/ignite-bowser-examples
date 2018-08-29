@@ -1,7 +1,7 @@
 import * as React from "react"
-import { NavigationScreenProps } from "react-navigation"
-import { Text, TextStyle, View, ViewStyle } from "react-native"
+import { Text, TextStyle, View, ViewStyle, Button } from "react-native"
 import { observer } from "mobx-react"
+import { DrawerItems } from "react-navigation"
 
 const container: ViewStyle = {
   flex: 1,
@@ -10,7 +10,7 @@ const container: ViewStyle = {
   paddingHorizontal: 20,
 }
 
-const uglyDrawerItem: TextStyle = {
+const uglyDrawerItem: any = {
   fontSize: 18,
   fontWeight: "bold",
   color: "#E73536",
@@ -31,23 +31,41 @@ const uglyDrawerItem: TextStyle = {
 export class Drawer extends React.Component {
   props: any
 
-  renderDrawerSection = route => {
+  renderDrawerSection(route) {
     const { navigation } = this.props
     return (
-      <Text>
-        onPress={() => navigation.navigate(route)}
-        style={uglyDrawerItem}
-      </Text>
-    )
-  }
-
-  render() {
-    return (
-      <View style={container}>
-        {this.renderDrawerSection("screen1")}
-        {this.renderDrawerSection("screen2")}
-        {this.renderDrawerSection("screen3")}
+      <View>
+        <Button
+          onPress={() => navigation.navigate(route)}
+          // style={uglyDrawerItem}
+          title={route}
+        />
+        {/* <Text>{route}</Text> */}
       </View>
     )
   }
+
+  // render() {
+  //   const { navigation } = this.props
+  //   return (
+  //     <View style={container}>
+  //       {/* <Button
+  //         onPress={() => navigation.navigate("screen1")}
+  //         title={"screen1"}
+  //       />
+  //       <Button
+  //         onPress={() => navigation.navigate("screen2")}
+  //         title={"screen2"}
+  //       />
+  //       <Button
+  //         onPress={() => navigation.navigate("screen3")}
+  //         title={"screen3"}
+  //       /> */}
+  //       {/* {this.renderDrawerSection("screen1")}
+  //       {this.renderDrawerSection("screen2")}
+  //       {this.renderDrawerSection("screen3")} */}
+  //       {/* <DrawerItems {...this.props} /> */}
+  //     </View>
+  //   )
+  // }
 }
