@@ -4,6 +4,7 @@ import { addNavigationHelpers } from "react-navigation"
 import { RootNavigator } from "./root-navigator"
 import { NavigationStore } from "../models/navigation-store/navigation-store"
 import throttle from "lodash.throttle"
+import { contains } from "ramda"
 
 interface StatefulNavigatorProps {
   navigationStore?: NavigationStore
@@ -19,24 +20,34 @@ const THROTTLE = 500
  */
 const THROTTLE_OPTIONS = { trailing: false }
 
-// @inject("navigationStore")
-// @observer
+@inject("navigationStore")
+@observer
 export class StatefulNavigator extends React.Component<
   StatefulNavigatorProps,
   {}
 > {
+  bar(dispatch) {
+    return action => {
+      const noThrottleRoutes: string[] = ["screen1", "screen2", "screen3"]
+      if (contains(action.routeName, noThrottleRoutes)) {
+        dispatch(action)
+      } else {
+        throttle(dispatch, THROTTLE, THROTTLE_OPTIONS)(action)
+      }
+    }
+  }
+
   render() {
-    // // grab our state & dispatch from our navigation store
-    // const { state, dispatch, addListener } = this.props.navigationStore
+    // grab our state & dispatch from our navigation store
+    const { state, dispatch, addListener } = this.props.navigationStore
 
-    // // create a custom navigation implementation
-    // const childNavigation = addNavigationHelpers({
-    //   dispatch: throttle(dispatch, THROTTLE, THROTTLE_OPTIONS),
-    //   state,
-    //   addListener,
-    // } as any) // (as any is only here until @types/react-navigation is updated)
+    // create a custom navigation implementation
+    const navigation = addNavigationHelpers({
+      dispatch: this.bar(dispatch), //throttle(dispatch, THROTTLE, THROTTLE_OPTIONS),
+      state,
+      addListener,
+    } as any) // (as any is only here until @types/react-navigation is updated)
 
-    // return <RootNavigator navigation={childNavigation} />
-    return <RootNavigator />
+    return <RootNavigator navigation={navigation} />
   }
 }
