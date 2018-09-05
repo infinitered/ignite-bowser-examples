@@ -1,12 +1,5 @@
 import * as React from "react"
-import {
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-  View,
-  Text,
-  ViewStyle,
-} from "react-native"
+import { StyleSheet, ScrollView, View, ViewStyle } from "react-native"
 import { Button } from "../../shared/button"
 
 export interface DrawerContainerProps {
@@ -48,7 +41,6 @@ export default class DrawerContainer extends React.Component<
     const baseDrawerButton: ViewStyle = {
       borderRadius: 0,
       marginVertical: 15,
-      // marginLeft: 25,
       paddingLeft: 30,
       borderLeftWidth: 8,
       borderLeftColor: "#00000000",
