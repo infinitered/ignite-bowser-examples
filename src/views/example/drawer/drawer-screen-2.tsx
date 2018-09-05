@@ -17,7 +17,7 @@ export default class DrawerScreen1 extends React.Component {
           resizeMode="cover"
         >
           <Image source={im} style={styles.image} />
-          <Text style={styles.screenLabel}>Screen 2</Text>
+          <Text style={styles.screenLabel}>SCREEN TWO</Text>
         </ImageBackground>
       </View>
     )
@@ -42,5 +42,6 @@ const styles = StyleSheet.create({
   screenLabel: {
     color: "#fff",
     textAlign: "center",
+    fontSize: 28,
   },
 })

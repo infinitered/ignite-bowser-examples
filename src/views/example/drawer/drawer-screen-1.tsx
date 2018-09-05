@@ -1,23 +1,26 @@
 import * as React from "react"
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native"
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ImageBackground,
+  TextStyle,
+} from "react-native"
 
 export default class DrawerScreen1 extends React.Component {
-  static navigationOptions = {
-    drawerLabel: "Screen One",
-  }
-
   render() {
-    const im = require("./illustration_screen1.png")
-    const bg = require("./bg-gradient.png")
+    const image = require("./illustration_screen1.png")
+    const background = require("./bg-gradient.png")
     return (
       <View style={styles.container}>
         <ImageBackground
-          source={bg}
+          source={background}
           style={styles.backgroundImage}
           resizeMode="cover"
         >
-          <Image source={im} style={styles.image} />
-          <Text style={styles.screenLabel}>Screen 1</Text>
+          <Image source={image} style={styles.image} />
+          <Text style={styles.screenLabel}>SCREEN ONE</Text>
         </ImageBackground>
       </View>
     )
@@ -42,5 +45,6 @@ const styles = StyleSheet.create({
   screenLabel: {
     color: "#fff",
     textAlign: "center",
+    fontSize: 28,
   },
 })
