@@ -2,6 +2,10 @@ import * as React from "react"
 import { StyleSheet, Text, View, Image, ImageBackground } from "react-native"
 
 export default class DrawerScreen1 extends React.Component {
+  static navigationOptions = {
+    drawerLabel: "Screen One",
+  }
+
   render() {
     const im = require("./illustration_screen1.png")
     const bg = require("./bg-gradient.png")

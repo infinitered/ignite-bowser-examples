@@ -2,8 +2,12 @@ import * as React from "react"
 import { StyleSheet, Text, View, Image, ImageBackground } from "react-native"
 
 export default class DrawerScreen1 extends React.Component {
+  static navigationOptions = {
+    drawerLabel: "Screen Three",
+  }
+
   render() {
-    const im = require("./illustration_screen1.png")
+    const im = require("./illustration_screen3.png")
     const bg = require("./bg-gradient.png")
     return (
       <View style={styles.container}>
@@ -13,7 +17,7 @@ export default class DrawerScreen1 extends React.Component {
           resizeMode="cover"
         >
           <Image source={im} style={styles.image} />
-          <Text style={styles.screenLabel}>Screen 1</Text>
+          <Text style={styles.screenLabel}>Screen 3</Text>
         </ImageBackground>
       </View>
     )
