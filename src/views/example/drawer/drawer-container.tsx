@@ -42,7 +42,7 @@ export default class DrawerContainer extends React.Component<
       borderRadius: 0,
       marginVertical: 15,
       paddingLeft: 30,
-      borderLeftWidth: 8,
+      borderLeftWidth: 4,
       borderLeftColor: "#00000000",
     }
 
@@ -83,6 +83,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#5D2555",
     paddingTop: 40,
-    paddingHorizontal: 20,
   },
 })
