@@ -3,20 +3,17 @@ import { StyleSheet, Text, View, Image, ImageBackground } from "react-native"
 
 export default class DrawerScreen1 extends React.Component {
   render() {
-    // const im = require("./illustration_screen1.png")
-    const im = require("./bg-gradient.png")
+    const im = require("./illustration_screen1.png")
+    const bg = require("./bg-gradient.png")
     return (
       <View style={styles.container}>
         <ImageBackground
-          source={im}
+          source={bg}
           style={styles.backgroundImage}
-          // imageStyle={styles.image}
-          // resizeMode="cover"
+          resizeMode="cover"
         >
-          {/* <Image
-            source={im}
-            style={styles.image}
-          /> */}
+          <Image source={im} style={styles.image} />
+          <Text style={styles.screenLabel}>Screen 1</Text>
         </ImageBackground>
       </View>
     )
@@ -25,18 +22,21 @@ export default class DrawerScreen1 extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    // paddingHorizontal: "50%",
   },
   backgroundImage: {
     width: "100%",
     height: "100%",
+    marginHorizontal: "10%",
+    paddingTop: 180,
   },
   image: {
-    height: "20%",
-    width: "56%",
+    marginHorizontal: 82,
+    marginBottom: 40,
+  },
+  screenLabel: {
+    color: "#fff",
+    textAlign: "center",
   },
 })

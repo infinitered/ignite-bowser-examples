@@ -15,6 +15,7 @@ export const DrawerStack = DrawerNavigator(
     // gesturesEnabled: false,
     // headerMode: "none",
     // navigationOptions: { gesturesEnabled: false },
+    initialRouteName: "screen1",
   },
 )
 

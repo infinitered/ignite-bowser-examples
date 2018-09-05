@@ -14,9 +14,12 @@
     "lint": "npm-run-all lint:*",
     "lint:ts": "tslint -p .",
     "precommit": "lint-staged",
-    "hack:types-react-navigation": "rimraf node_modules/@types/react-navigation/node_modules/@types",
-    "hack:types-react-native": "rimraf node_modules/@types/react-native/node_modules/@types",
-    "hack:types-react-test-renderer": "rimraf node_modules/@types/react-test-renderer/node_modules/@types",
+    "hack:types-react-navigation":
+      "rimraf node_modules/@types/react-navigation/node_modules/@types",
+    "hack:types-react-native":
+      "rimraf node_modules/@types/react-native/node_modules/@types",
+    "hack:types-react-test-renderer":
+      "rimraf node_modules/@types/react-test-renderer/node_modules/@types",
     "patch": "patch-package",
     "prepare": "npm-run-all patch hack:*",
     "storybook": "storybook start -p 9001 --skip-packager"
@@ -36,6 +39,7 @@
     "react-navigation": "1.5.12",
     "reactotron-mst": "2.0.0-beta.2",
     "reactotron-react-native": "2.0.0-beta.2",
+    "reinstall": "^2.0.0",
     "validate.js": "0.12.0"
   },
   "devDependencies": {
@@ -73,27 +77,12 @@
     "preset": "jest-preset-ignite"
   },
   "rnpm": {
-    "assets": [
-      "./src/theme/fonts/"
-    ]
+    "assets": ["./src/theme/fonts/"]
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{ts,tsx}": [
-      "prettier --write",
-      "tslint --fix",
-      "git add"
-    ],
-    "*.md": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.js": ["prettier --write", "git add"],
+    "*.{ts,tsx}": ["prettier --write", "tslint --fix", "git add"],
+    "*.md": ["prettier --write", "git add"],
+    "*.json": ["prettier --write", "git add"]
   }
 }
