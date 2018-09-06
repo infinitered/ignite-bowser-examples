@@ -7,6 +7,7 @@ export const RootNavigator = StackNavigator(
   },
   {
     headerMode: "none",
+    initialRouteName: "exampleStack",
     navigationOptions: { gesturesEnabled: false },
   },
 )

@@ -22,7 +22,6 @@ const HEADER: TextStyle = {
   textAlign: "center",
 }
 
-
 export interface IndexScreenProps extends NavigationScreenProps<{}> {
   toDoStore: ToDoStore
 }
@@ -34,18 +33,27 @@ export class IndexScreen extends React.Component<IndexScreenProps, {}> {
     this.props.navigation.navigate("toDoList")
   }
 
+  drawerScreen = () => {
+    this.props.navigation.navigate("drawerStack")
+  }
+
   render() {
     return (
       <View style={FULL}>
         <StatusBar barStyle="light-content" />
         <Wallpaper />
-        <Screen style={CONTAINER} backgroundColor={color.transparent} preset="scrollStack">
-          <Text
-            preset="header"
-            text={"Examples"}
-            style={HEADER}
-          />
+        <Screen
+          style={CONTAINER}
+          backgroundColor={color.transparent}
+          preset="scrollStack"
+        >
+          <Text preset="header" text={"Examples"} style={HEADER} />
           <Button preset="link" onPress={this.toDoList} text={"ToDoList"} />
+          <Button
+            preset="link"
+            onPress={this.drawerScreen}
+            text={"DrawerScreen"}
+          />
         </Screen>
       </View>
     )
