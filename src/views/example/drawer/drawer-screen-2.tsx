@@ -1,22 +1,19 @@
 import * as React from "react"
 import { StyleSheet, Text, View, Image, ImageBackground } from "react-native"
 
-export default class DrawerScreen1 extends React.Component {
-  static navigationOptions = {
-    drawerLabel: "Screen Two",
-  }
+export default class DrawerScreen2 extends React.Component {
+  static IMAGE = require("./illustration_screen2.png")
+  static BACKGROUND = require("./bg-gradient.png")
 
   render() {
-    const im = require("./illustration_screen2.png")
-    const bg = require("./bg-gradient.png")
     return (
       <View style={styles.container}>
         <ImageBackground
-          source={bg}
+          source={DrawerScreen2.BACKGROUND}
           style={styles.backgroundImage}
           resizeMode="cover"
         >
-          <Image source={im} style={styles.image} />
+          <Image source={DrawerScreen2.IMAGE} style={styles.image} />
           <Text style={styles.screenLabel}>SCREEN TWO</Text>
         </ImageBackground>
       </View>

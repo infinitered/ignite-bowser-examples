@@ -1,22 +1,19 @@
 import * as React from "react"
 import { StyleSheet, Text, View, Image, ImageBackground } from "react-native"
 
-export default class DrawerScreen1 extends React.Component {
-  static navigationOptions = {
-    drawerLabel: "Screen Three",
-  }
+export default class DrawerScreen3 extends React.Component {
+  static IMAGE = require("./illustration_screen3.png")
+  static BACKGROUND = require("./bg-gradient.png")
 
   render() {
-    const im = require("./illustration_screen3.png")
-    const bg = require("./bg-gradient.png")
     return (
       <View style={styles.container}>
         <ImageBackground
-          source={bg}
+          source={DrawerScreen3.BACKGROUND}
           style={styles.backgroundImage}
           resizeMode="cover"
         >
-          <Image source={im} style={styles.image} />
+          <Image source={DrawerScreen3.IMAGE} style={styles.image} />
           <Text style={styles.screenLabel}>SCREEN THREE</Text>
         </ImageBackground>
       </View>
